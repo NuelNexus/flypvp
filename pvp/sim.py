@@ -166,8 +166,17 @@ class Duel:
             full = applies & ~immune
             dealt[:, i] = torch.where(applies, torch.minimum(excess, self.health[:, j]), 0.)
             sprint_hit = full & charged & self.sprinting[:, i]
-            pending_kb.append((j, full, sprint_hit, dmg, applies, i))
+            pending_kb.append([j, full, sprint_hit, dmg, applies, i])
             self.swing[:, i] = torch.where(swung, 0., self.swing[:, i])
+        # The server handles one attack packet before the other: when both swings would kill,
+        # a random one lands first and the dead fighter's swing never happens.
+        lethal = [dealt[:, i] >= self.health[:, 1 - i] for i in (0, 1)]
+        both = lethal[0] & lethal[1] & live
+        first = self.rand(self.B) < .5
+        for i, cancel in ((0, both & ~first), (1, both & first)):
+            dealt[:, i] = torch.where(cancel, 0., dealt[:, i])
+            for k in (1, 2, 4):
+                pending_kb[i][k] = pending_kb[i][k] & ~cancel
         for j, full, sprint_hit, dmg, applies, i in pending_kb:
             self.health[:, j] -= dealt[:, i]
             self.last_damage[:, j] = torch.where(applies, dmg, self.last_damage[:, j])

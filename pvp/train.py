@@ -118,7 +118,9 @@ def ppo(args, circuit, digest):
     duel = Duel(B, args.seed)
     bots = Bots(B, args.seed + 1)
     # Opponent slots: level 1-4 bots, or -1 = a frozen snapshot of the brain.
-    league = [copy.deepcopy(model).eval()]
+    # Anchors (e.g. the imitation brain) stay in the league for good; snapshots rotate.
+    anchors = [load(path, circuit)[0].eval() for path in args.anchor]
+    league = anchors + [copy.deepcopy(model).eval()]
     def pick(n):
         weights = torch.tensor([.05, .15, .25, .35, args.selfplay])   # rusher, timer, strafer, expert, self
         choice = torch.multinomial(weights, n, replacement=True)
@@ -203,7 +205,7 @@ def ppo(args, circuit, digest):
                 stats.append((pg.item(), vloss.item(), ent.item(), ((ratio - 1).abs() > args.clip).float().mean().item()))
         if (update + 1) % args.snapshot_every == 0:
             league.append(copy.deepcopy(model).eval())
-            league = league[-args.league_size:]
+            league = anchors + league[len(anchors):][-args.league_size:]
         if update % args.log_every == 0 or update == args.updates - 1:
             s = torch.tensor(stats).mean(0).tolist()
             total = max(1, wins + losses + draws)
@@ -215,6 +217,10 @@ def ppo(args, circuit, digest):
             if update % args.eval_every == 0 or update == args.updates - 1:
                 row['eval'] = evaluate.ladder(model, duels=200, seed=20_000 + update, levels=(1, 2, 3, 4))
                 score = row['eval']['4']['win']
+                if anchors:
+                    r, _, _ = evaluate.play(model, 4, 200, 30_000 + update, opponent_model=anchors[0])
+                    row['eval']['anchor'] = {'win': round((r == 0).float().mean().item(), 3), 'loss': round((r == 1).float().mean().item(), 3)}
+                    score = (score + row['eval']['anchor']['win']) / 2
                 save(model, Path(args.out).with_name(Path(args.out).stem + '-latest.pt'), {'stage': 'ppo', 'update': update, 'circuitSha256': digest, 'eval': row['eval']})
                 if score >= best:
                     best = score
@@ -248,6 +254,7 @@ def main():
     p.add_argument('--selfplay', type=float, default=.2)
     p.add_argument('--snapshot-every', type=int, default=25)
     p.add_argument('--league-size', type=int, default=8)
+    p.add_argument('--anchor', action='append', default=[], help='frozen checkpoint kept in the self-play league for good')
     p.add_argument('--log-every', type=int, default=5)
     p.add_argument('--eval-every', type=int, default=25)
     p.add_argument('--threads', type=int, default=4)
