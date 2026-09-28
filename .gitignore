@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+minecraft/
+mod/build/
+mod/.gradle/
+brain/pvp/*-latest.pt

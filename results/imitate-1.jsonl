@@ -1,0 +1,5 @@
+{"stage": "imitate", "it": 0, "beta": 1.0, "loss": 5.5377, "agree": [0.909, 0.336, 0.909, 1.0, 0.951, 0.232], "sec": 5, "eval": {"2": {"name": "timer", "win": 0.0, "loss": 1.0, "draw": 0.0, "hpLeft": 0.0, "opponentHpLeft": 20.0, "seconds": 11.5}, "3": {"name": "strafer", "win": 0.0, "loss": 0.914, "draw": 0.086, "hpLeft": 5.71, "opponentHpLeft": 20.0, "seconds": 42.4}, "4": {"name": "expert", "win": 0.0, "loss": 0.953, "draw": 0.047, "hpLeft": 6.41, "opponentHpLeft": 20.0, "seconds": 42.8}}}
+{"stage": "imitate", "it": 10, "beta": 0.944, "loss": 2.1175, "agree": [0.979, 0.924, 0.991, 1.0, 0.953, 0.348], "sec": 97}
+{"stage": "imitate", "it": 20, "beta": 0.889, "loss": 1.9, "agree": [0.98, 0.905, 0.99, 0.999, 0.986, 0.396], "sec": 148}
+{"stage": "imitate", "it": 30, "beta": 0.833, "loss": 1.6889, "agree": [0.984, 0.907, 0.994, 1.0, 0.997, 0.46], "sec": 202}
+{"stage": "imitate", "it": 40, "beta": 0.778, "loss": 1.498, "agree": [0.992, 0.903, 0.992, 1.0, 0.998, 0.494], "sec": 253}

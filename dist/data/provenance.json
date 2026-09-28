@@ -1,0 +1,11 @@
+{
+  "dataset": "FlyWire FAFB v783 (female adult brain)",
+  "mirror": "https://github.com/snedea/flybrain",
+  "selection": "Highest weighted internal degree within upstream groups: 256 sensory, 128 local, 256 projection, 512 Kenyon, 96 mushroom-body output, 288 lateral-horn cells. Connections crossing the sample boundary are omitted.",
+  "coordinates": "First representative coordinate per root ID; not neuron morphology or necessarily soma locations.",
+  "sha256": {
+    "connectome.bin.gz": "fbf8d440ca1207c7573e1acdd2366f9d0beb9b533c1710f21681264f81b1cc49",
+    "coordinates.csv.gz": "14337121f451f98c2576cee72c24409ada5aaf7948b7c7ca8de9040296840e05",
+    "neurons.csv.gz": "6a6b3759e635f0f35a677d169052362131ec61d95f55919298b55c43fce4e719"
+  }
+}
