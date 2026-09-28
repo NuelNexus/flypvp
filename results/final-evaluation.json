@@ -1,0 +1,444 @@
+{
+ "checkpoint": "brain/pvp/checkpoint.pt",
+ "from": "phase 4 update 100",
+ "circuitSha256": "ef6a6c1dd520b461b3beaca3859f0c5de4fb3fccb94336c180016d6ef0017227",
+ "parameterHash": "714de01be5637bf9b9ab5911cdca37478cb7c5336905ed9579234a922bc2aa81",
+ "learning": "off, greedy actions, fresh seeds",
+ "ladder": {
+  "0": {
+   "name": "dummy",
+   "win": 1.0,
+   "loss": 0.0,
+   "draw": 0.0,
+   "hpLeft": 20.0,
+   "opponentHpLeft": 0.0,
+   "seconds": 7.0
+  },
+  "1": {
+   "name": "rusher",
+   "win": 1.0,
+   "loss": 0.0,
+   "draw": 0.0,
+   "hpLeft": 17.42,
+   "opponentHpLeft": 0.0,
+   "seconds": 4.8
+  },
+  "2": {
+   "name": "timer",
+   "win": 0.994,
+   "loss": 0.006,
+   "draw": 0.0,
+   "hpLeft": 8.84,
+   "opponentHpLeft": 0.01,
+   "seconds": 5.3
+  },
+  "3": {
+   "name": "strafer",
+   "win": 0.988,
+   "loss": 0.012,
+   "draw": 0.0,
+   "hpLeft": 9.31,
+   "opponentHpLeft": 0.01,
+   "seconds": 5.8
+  },
+  "4": {
+   "name": "expert",
+   "win": 0.996,
+   "loss": 0.004,
+   "draw": 0.0,
+   "hpLeft": 8.49,
+   "opponentHpLeft": 0.0,
+   "seconds": 5.9
+  },
+  "5": {
+   "name": "ace",
+   "win": 1.0,
+   "loss": 0.0,
+   "draw": 0.0,
+   "hpLeft": 9.32,
+   "opponentHpLeft": 0.0,
+   "seconds": 5.9
+  }
+ },
+ "imitationBrainLadder": {
+  "2": {
+   "name": "timer",
+   "win": 0.958,
+   "loss": 0.042,
+   "draw": 0.0,
+   "hpLeft": 6.88,
+   "opponentHpLeft": 0.06,
+   "seconds": 5.6
+  },
+  "3": {
+   "name": "strafer",
+   "win": 0.442,
+   "loss": 0.558,
+   "draw": 0.0,
+   "hpLeft": 1.24,
+   "opponentHpLeft": 1.59,
+   "seconds": 7.3
+  },
+  "4": {
+   "name": "expert",
+   "win": 0.468,
+   "loss": 0.532,
+   "draw": 0.0,
+   "hpLeft": 1.23,
+   "opponentHpLeft": 1.29,
+   "seconds": 7.3
+  },
+  "5": {
+   "name": "ace",
+   "win": 0.748,
+   "loss": 0.252,
+   "draw": 0.0,
+   "hpLeft": 2.31,
+   "opponentHpLeft": 0.37,
+   "seconds": 7.6
+  }
+ },
+ "vsImitationBrain": {
+  "duels": 1000,
+  "win": 0.5099999904632568,
+  "loss": 0.49000000953674316
+ },
+ "gateExpert": {
+  "level": "expert",
+  "firstTo": 3,
+  "passed": 12,
+  "of": 12,
+  "checks": [
+   {
+    "check": 1,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     900000,
+     900001,
+     900002
+    ]
+   },
+   {
+    "check": 2,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     900101,
+     900102,
+     900103
+    ]
+   },
+   {
+    "check": 3,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     900202,
+     900203,
+     900204
+    ]
+   },
+   {
+    "check": 4,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     900303,
+     900304,
+     900305
+    ]
+   },
+   {
+    "check": 5,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     900404,
+     900405,
+     900406
+    ]
+   },
+   {
+    "check": 6,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     900505,
+     900506,
+     900507
+    ]
+   },
+   {
+    "check": 7,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     900606,
+     900607,
+     900608
+    ]
+   },
+   {
+    "check": 8,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     900707,
+     900708,
+     900709
+    ]
+   },
+   {
+    "check": 9,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     900808,
+     900809,
+     900810
+    ]
+   },
+   {
+    "check": 10,
+    "won": 3,
+    "lost": 1,
+    "passed": true,
+    "seeds": [
+     900909,
+     900910,
+     900911,
+     900912
+    ]
+   },
+   {
+    "check": 11,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     901010,
+     901011,
+     901012
+    ]
+   },
+   {
+    "check": 12,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     901111,
+     901112,
+     901113
+    ]
+   }
+  ]
+ },
+ "gateAce": {
+  "level": "ace",
+  "firstTo": 3,
+  "passed": 12,
+  "of": 12,
+  "checks": [
+   {
+    "check": 1,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     950000,
+     950001,
+     950002
+    ]
+   },
+   {
+    "check": 2,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     950101,
+     950102,
+     950103
+    ]
+   },
+   {
+    "check": 3,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     950202,
+     950203,
+     950204
+    ]
+   },
+   {
+    "check": 4,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     950303,
+     950304,
+     950305
+    ]
+   },
+   {
+    "check": 5,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     950404,
+     950405,
+     950406
+    ]
+   },
+   {
+    "check": 6,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     950505,
+     950506,
+     950507
+    ]
+   },
+   {
+    "check": 7,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     950606,
+     950607,
+     950608
+    ]
+   },
+   {
+    "check": 8,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     950707,
+     950708,
+     950709
+    ]
+   },
+   {
+    "check": 9,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     950808,
+     950809,
+     950810
+    ]
+   },
+   {
+    "check": 10,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     950909,
+     950910,
+     950911
+    ]
+   },
+   {
+    "check": 11,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     951010,
+     951011,
+     951012
+    ]
+   },
+   {
+    "check": 12,
+    "won": 3,
+    "lost": 0,
+    "passed": true,
+    "seeds": [
+     951111,
+     951112,
+     951113
+    ]
+   }
+  ]
+ },
+ "style": {
+  "controls": {
+   "forward": [
+    0.0,
+    0.04899999871850014,
+    0.9509999752044678
+   ],
+   "strafe": [
+    0.6320000290870667,
+    0.36800000071525574,
+    0.0
+   ],
+   "sprint": [
+    0.05400000140070915,
+    0.9459999799728394
+   ],
+   "jump": [
+    1.0,
+    0.0
+   ],
+   "attack": [
+    0.949999988079071,
+    0.05000000074505806
+   ],
+   "turn": [
+    0.0020000000949949026,
+    0.0,
+    0.05700000002980232,
+    0.19300000369548798,
+    0.03700000047683716,
+    0.6579999923706055,
+    0.03999999910593033,
+    0.00800000037997961,
+    0.0010000000474974513,
+    0.0020000000949949026,
+    0.0020000000949949026
+   ]
+  },
+  "distance": {
+   "mean": 5.66,
+   "p10/p50/p90": [
+    3.57,
+    5.18,
+    8.53
+   ]
+  },
+  "damagePerHit": [
+   3.33,
+   3.78
+  ],
+  "hitsPerDuel": [
+   6.0,
+   3.13
+  ],
+  "win": 1.0,
+  "loss": 0.0
+ }
+}

@@ -4,6 +4,10 @@ A fruit fly's brain wiring, taught to sword fight in Minecraft.
 
 This is the PvP version of [FlyBridge](https://github.com/swotstudio/FlyBridge), the project behind *I Put a Fly's Brain in Minecraft and Made It Farm*. It uses the same brain: 1,536 neurons and 42,921 signed connections taken from the FlyWire connectome of an adult fruit fly. FlyBridge taught that circuit to farm wheat. FlyPvP teaches it to win 1v1 sword duels with 1.9+ combat: attack cooldowns, crits, sprint knockback, W-taps, strafing and spacing.
 
+## Result
+
+The trained brain is `brain/pvp/checkpoint.pt`. With learning off, on fresh seeds, it won **99.6% of 500 duels against the expert bot** and passed the **12/12 gate**. It also won 100% against a held-out near-perfect-aim bot. Against the stage-1 brain that copied the expert, it breaks even (51%), which is the main limitation. Every run, including the failed ones, is in [`docs/TRAINING.md`](docs/TRAINING.md).
+
 ## What is real, and what is not
 
 Here is what the project claims, and what it does not.
