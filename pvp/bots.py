@@ -9,6 +9,7 @@ a different program, so a batch can mix levels per duel.
   2 timer    waits for a charged sword, decent aim, no footwork
   3 strafer  timed hits, strafing, W-tap sprint resets
   4 expert   all of 3, plus spacing while recharging, jump crits, tight aim
+  5 ace      held-out test only: expert footwork with near-perfect aim that tracks strafing
 """
 import torch
 from .sim import TURNS, REACH, COOLDOWN, Duel
@@ -20,8 +21,9 @@ LEVELS = {
     2: dict(noise=4., click=1., thresh=.92, strafe=0., wtap=0., space=0., crit=0., approach=1.),
     3: dict(noise=2.5, click=1., thresh=.92, strafe=1., wtap=1., space=0., crit=0., approach=1.),
     4: dict(noise=1.5, click=1., thresh=.95, strafe=1., wtap=1., space=1., crit=.35, approach=1.),
+    5: dict(noise=.3, click=1., thresh=.95, strafe=1., wtap=1., space=1., crit=0., approach=1.),
 }
-NAMES = {0: 'dummy', 1: 'rusher', 2: 'timer', 3: 'strafer', 4: 'expert'}
+NAMES = {0: 'dummy', 1: 'rusher', 2: 'timer', 3: 'strafer', 4: 'expert', 5: 'ace'}
 
 
 class Bots:
@@ -65,7 +67,7 @@ class Bots:
         sprinting = s[:, 25] > 0
 
         # Aim: pick the turn bin closest to the (noisy) bearing, leading a strafing target a little.
-        lead = s[:, 14] * 2.0 * (dist < 5).float()
+        lead = s[:, 14] * torch.where(self.level == 5, 6., 2.) * (dist < 5).float()
         want = bearing + lead + torch.randn(B, generator=self.gen).to(self.device) * P['noise']
         turn = (self.turns[None] - want[:, None]).abs().argmin(-1)
         dummy = self.level == 0
