@@ -3,3 +3,29 @@
 {"stage": "imitate", "it": 20, "beta": 0.889, "loss": 1.9, "agree": [0.98, 0.905, 0.99, 0.999, 0.986, 0.396], "sec": 148}
 {"stage": "imitate", "it": 30, "beta": 0.833, "loss": 1.6889, "agree": [0.984, 0.907, 0.994, 1.0, 0.997, 0.46], "sec": 202}
 {"stage": "imitate", "it": 40, "beta": 0.778, "loss": 1.498, "agree": [0.992, 0.903, 0.992, 1.0, 0.998, 0.494], "sec": 253}
+{"stage": "imitate", "it": 50, "beta": 0.722, "loss": 1.4338, "agree": [0.99, 0.911, 0.992, 1.0, 0.999, 0.524], "sec": 312, "eval": {"2": {"name": "timer", "win": 0.758, "loss": 0.18, "draw": 0.062, "hpLeft": 4.77, "opponentHpLeft": 0.73, "seconds": 5.9}, "3": {"name": "strafer", "win": 0.023, "loss": 0.953, "draw": 0.023, "hpLeft": 0.06, "opponentHpLeft": 6.22, "seconds": 7.1}, "4": {"name": "expert", "win": 0.016, "loss": 0.938, "draw": 0.047, "hpLeft": 0.02, "opponentHpLeft": 5.64, "seconds": 7.2}}}
+{"stage": "imitate", "it": 60, "beta": 0.667, "loss": 1.3382, "agree": [0.993, 0.913, 0.997, 1.0, 0.999, 0.54], "sec": 371}
+{"stage": "imitate", "it": 70, "beta": 0.611, "loss": 1.3404, "agree": [0.994, 0.912, 0.996, 0.999, 0.999, 0.535], "sec": 423}
+{"stage": "imitate", "it": 80, "beta": 0.556, "loss": 1.3327, "agree": [0.993, 0.898, 0.995, 1.0, 0.999, 0.537], "sec": 476}
+{"stage": "imitate", "it": 90, "beta": 0.5, "loss": 1.4263, "agree": [0.994, 0.868, 0.995, 1.0, 0.999, 0.552], "sec": 528}
+{"stage": "imitate", "it": 100, "beta": 0.444, "loss": 1.3807, "agree": [0.996, 0.868, 0.996, 0.999, 0.999, 0.551], "sec": 581, "eval": {"2": {"name": "timer", "win": 0.914, "loss": 0.008, "draw": 0.078, "hpLeft": 6.78, "opponentHpLeft": 0.01, "seconds": 5.7}, "3": {"name": "strafer", "win": 0.359, "loss": 0.477, "draw": 0.164, "hpLeft": 1.31, "opponentHpLeft": 1.53, "seconds": 7.2}, "4": {"name": "expert", "win": 0.375, "loss": 0.422, "draw": 0.203, "hpLeft": 1.06, "opponentHpLeft": 0.94, "seconds": 7.4}}}
+{"stage": "imitate", "it": 110, "beta": 0.389, "loss": 1.4519, "agree": [0.995, 0.835, 0.997, 1.0, 1.0, 0.537], "sec": 640}
+{"stage": "imitate", "it": 120, "beta": 0.333, "loss": 1.4416, "agree": [0.995, 0.802, 0.995, 1.0, 1.0, 0.531], "sec": 692}
+{"stage": "imitate", "it": 130, "beta": 0.278, "loss": 1.4896, "agree": [0.998, 0.769, 0.997, 0.999, 0.999, 0.53], "sec": 744}
+{"stage": "imitate", "it": 140, "beta": 0.222, "loss": 1.4521, "agree": [0.997, 0.764, 0.999, 1.0, 1.0, 0.552], "sec": 795}
+{"stage": "imitate", "it": 150, "beta": 0.167, "loss": 1.4871, "agree": [0.997, 0.737, 0.999, 1.0, 0.999, 0.526], "sec": 846, "eval": {"2": {"name": "timer", "win": 0.945, "loss": 0.016, "draw": 0.039, "hpLeft": 7.01, "opponentHpLeft": 0.02, "seconds": 5.6}, "3": {"name": "strafer", "win": 0.266, "loss": 0.578, "draw": 0.156, "hpLeft": 0.98, "opponentHpLeft": 2.53, "seconds": 7.3}, "4": {"name": "expert", "win": 0.211, "loss": 0.664, "draw": 0.125, "hpLeft": 0.59, "opponentHpLeft": 2.09, "seconds": 7.4}}}
+{"stage": "imitate", "it": 160, "beta": 0.111, "loss": 1.4811, "agree": [0.997, 0.731, 0.995, 0.999, 1.0, 0.54], "sec": 904}
+{"stage": "imitate", "it": 170, "beta": 0.056, "loss": 1.5132, "agree": [0.994, 0.694, 0.995, 0.999, 0.999, 0.53], "sec": 957}
+{"stage": "imitate", "it": 180, "beta": 0.0, "loss": 1.5072, "agree": [0.997, 0.667, 0.998, 0.999, 1.0, 0.534], "sec": 1009}
+{"stage": "imitate", "it": 190, "beta": 0.0, "loss": 1.4921, "agree": [0.998, 0.669, 0.999, 1.0, 1.0, 0.531], "sec": 1061}
+{"stage": "imitate", "it": 200, "beta": 0.0, "loss": 1.5134, "agree": [0.994, 0.682, 0.995, 0.999, 0.998, 0.544], "sec": 1113, "eval": {"2": {"name": "timer", "win": 0.883, "loss": 0.008, "draw": 0.109, "hpLeft": 4.93, "opponentHpLeft": 0.01, "seconds": 5.8}, "3": {"name": "strafer", "win": 0.484, "loss": 0.281, "draw": 0.234, "hpLeft": 1.66, "opponentHpLeft": 0.66, "seconds": 7.0}, "4": {"name": "expert", "win": 0.359, "loss": 0.32, "draw": 0.32, "hpLeft": 0.78, "opponentHpLeft": 0.85, "seconds": 6.9}}}
+{"stage": "imitate", "it": 210, "beta": 0.0, "loss": 1.4767, "agree": [0.997, 0.68, 0.997, 0.999, 1.0, 0.534], "sec": 1171}
+{"stage": "imitate", "it": 220, "beta": 0.0, "loss": 1.4943, "agree": [0.997, 0.679, 0.996, 0.999, 1.0, 0.545], "sec": 1223}
+{"stage": "imitate", "it": 230, "beta": 0.0, "loss": 1.492, "agree": [0.997, 0.672, 1.0, 1.0, 1.0, 0.546], "sec": 1275}
+{"stage": "imitate", "it": 240, "beta": 0.0, "loss": 1.4806, "agree": [0.998, 0.687, 0.999, 1.0, 1.0, 0.531], "sec": 1328}
+{"stage": "imitate", "it": 250, "beta": 0.0, "loss": 1.4792, "agree": [0.999, 0.677, 0.999, 1.0, 0.999, 0.553], "sec": 1380, "eval": {"2": {"name": "timer", "win": 0.906, "loss": 0.023, "draw": 0.07, "hpLeft": 5.28, "opponentHpLeft": 0.03, "seconds": 5.7}, "3": {"name": "strafer", "win": 0.438, "loss": 0.281, "draw": 0.281, "hpLeft": 1.49, "opponentHpLeft": 0.72, "seconds": 6.7}, "4": {"name": "expert", "win": 0.18, "loss": 0.516, "draw": 0.305, "hpLeft": 0.52, "opponentHpLeft": 1.34, "seconds": 6.7}}}
+{"stage": "imitate", "it": 260, "beta": 0.0, "loss": 1.4721, "agree": [0.997, 0.675, 0.997, 0.999, 1.0, 0.538], "sec": 1438}
+{"stage": "imitate", "it": 270, "beta": 0.0, "loss": 1.481, "agree": [0.999, 0.705, 0.997, 0.999, 1.0, 0.533], "sec": 1490}
+{"stage": "imitate", "it": 280, "beta": 0.0, "loss": 1.4998, "agree": [0.997, 0.668, 0.999, 0.999, 1.0, 0.531], "sec": 1542}
+{"stage": "imitate", "it": 290, "beta": 0.0, "loss": 1.484, "agree": [0.998, 0.683, 0.998, 0.998, 1.0, 0.547], "sec": 1594}
+{"stage": "imitate", "it": 299, "beta": 0.0, "loss": 1.4748, "agree": [0.999, 0.697, 0.999, 0.999, 0.999, 0.535], "sec": 1641, "eval": {"2": {"name": "timer", "win": 0.914, "loss": 0.039, "draw": 0.047, "hpLeft": 7.25, "opponentHpLeft": 0.07, "seconds": 5.6}, "3": {"name": "strafer", "win": 0.344, "loss": 0.523, "draw": 0.133, "hpLeft": 0.94, "opponentHpLeft": 1.52, "seconds": 7.3}, "4": {"name": "expert", "win": 0.406, "loss": 0.398, "draw": 0.195, "hpLeft": 1.1, "opponentHpLeft": 0.94, "seconds": 7.3}}}
