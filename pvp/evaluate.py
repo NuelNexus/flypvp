@@ -16,7 +16,7 @@ from .model import one_hot_actions
 
 
 @torch.no_grad()
-def play(model, level, duels, seed, greedy=True, opponent_model=None):
+def play(model, level, duels, seed, greedy=True, opponent_model=None, opponent_greedy=None):
     """Returns per-duel winner (0 brain, 1 opponent, 2 draw), ticks, brain hp left, opponent hp left."""
     model.eval()
     d = Duel(duels, seed)
@@ -33,7 +33,7 @@ def play(model, level, duels, seed, greedy=True, opponent_model=None):
         action, _, _, _, hidden, _ = model(d.senses(0), previous, hidden, greedy=greedy, W=W)
         previous = one_hot_actions(action)
         if opponent_model is not None:
-            rival, _, _, _, rh, _ = opponent_model(d.senses(1), rp, rh, greedy=greedy, W=rW); rp = one_hot_actions(rival)
+            rival, _, _, _, rh, _ = opponent_model(d.senses(1), rp, rh, greedy=greedy if opponent_greedy is None else opponent_greedy, W=rW); rp = one_hot_actions(rival)
         else:
             rival = bots.act(d, 1)
         _, finished, winner = d.step(torch.stack([action, rival], 1))

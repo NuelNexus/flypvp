@@ -129,6 +129,9 @@ def ppo(args, circuit, digest):
     slot = pick(B)
     bots.set_levels(everyone, slot.clamp_min(1))
     snap_id = torch.zeros(B, dtype=torch.long)
+    # Frozen opponents mostly play their most likely action: a sampled opponent is far weaker
+    # than the same brain played greedily, and greedy is how checks are run.
+    rival_greedy = torch.rand(B) < args.rival_greedy
     hidden, rival_hidden = model.initial(B), model.initial(B)
     previous, rival_previous = torch.zeros(B, sum(HEADS)), torch.zeros(B, sum(HEADS))
     logfile = ROOT / f'results/{args.id}.jsonl'
@@ -152,7 +155,8 @@ def ppo(args, circuit, digest):
                     idx = selfplay.nonzero().squeeze(-1)
                     for sid in snap_id[idx].unique().tolist():
                         sub = idx[snap_id[idx] == sid]
-                        ra, _, _, _, rh, _ = league[sid](duel.senses(1)[sub], rival_previous[sub], rival_hidden[sub], W=rival_W[sid])
+                        ra, _, _, _, rh, rl = league[sid](duel.senses(1)[sub], rival_previous[sub], rival_hidden[sub], W=rival_W[sid])
+                        ra = torch.where(rival_greedy[sub, None], torch.stack([l.argmax(-1) for l in rl], -1), ra)
                         rival_action[sub] = ra; rival_hidden[sub] = rh
                         rival_previous[sub] = one_hot_actions(ra)
                 dealt, finished, winner = duel.step(torch.stack([action, rival_action], 1))
@@ -170,6 +174,7 @@ def ppo(args, circuit, digest):
                     slot[finished] = pick(n)
                     bots.set_levels(finished, slot[finished].clamp_min(1))
                     # Prefer recent snapshots but keep old ones in the pool.
+                    rival_greedy[finished] = torch.rand(n) < args.rival_greedy
                     snap_id[finished] = torch.tensor([min(len(league) - 1, int(len(league) * random.random() ** .5)) for _ in range(n)])
             _, _, _, next_value, _, _ = model(duel.senses(0), previous, hidden, W=W)
         steps += B * T
@@ -254,6 +259,7 @@ def main():
     p.add_argument('--selfplay', type=float, default=.2)
     p.add_argument('--snapshot-every', type=int, default=25)
     p.add_argument('--league-size', type=int, default=8)
+    p.add_argument('--rival-greedy', type=float, default=.75)
     p.add_argument('--anchor', action='append', default=[], help='frozen checkpoint kept in the self-play league for good')
     p.add_argument('--log-every', type=int, default=5)
     p.add_argument('--eval-every', type=int, default=25)
