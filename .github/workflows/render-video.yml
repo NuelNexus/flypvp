@@ -1,0 +1,44 @@
+name: Render duel video
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - pvp/render.py
+      - .github/workflows/render-video.yml
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install numpy pillow imageio-ffmpeg
+          sudo apt-get install -y fonts-dejavu-core
+      - name: Render
+        run: python -m pvp.render --out media/fly-pvp-duels.mp4
+      - name: Preview frames
+        run: |
+          FF=$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')
+          $FF -y -loglevel error -ss 9 -i media/fly-pvp-duels.mp4 -frames:v 1 media/preview.png
+          ls -la media
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fly-pvp-duels
+          path: media/
+      - name: Commit video
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add media
+          git commit -m "Render simulated duel video [skip ci]" || exit 0
+          git push
