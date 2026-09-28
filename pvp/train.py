@@ -175,7 +175,9 @@ def ppo(args, circuit, digest):
                     bots.set_levels(finished, slot[finished].clamp_min(1))
                     # Prefer recent snapshots but keep old ones in the pool.
                     rival_greedy[finished] = torch.rand(n) < args.rival_greedy
-                    snap_id[finished] = torch.tensor([min(len(league) - 1, int(len(league) * random.random() ** .5)) for _ in range(n)])
+                    # A fixed share of self-play duels goes to the anchors, the rest prefer recent snapshots.
+                    snap_id[finished] = torch.tensor([random.randrange(len(anchors)) if anchors and random.random() < args.anchor_share
+                                                      else min(len(league) - 1, len(anchors) + int((len(league) - len(anchors)) * random.random() ** .5)) for _ in range(n)])
             _, _, _, next_value, _, _ = model(duel.senses(0), previous, hidden, W=W)
         steps += B * T
         # GAE.
@@ -259,6 +261,7 @@ def main():
     p.add_argument('--selfplay', type=float, default=.2)
     p.add_argument('--snapshot-every', type=int, default=25)
     p.add_argument('--league-size', type=int, default=8)
+    p.add_argument('--anchor-share', type=float, default=.5, help='share of self-play duels against the anchors')
     p.add_argument('--rival-greedy', type=float, default=.75)
     p.add_argument('--anchor', action='append', default=[], help='frozen checkpoint kept in the self-play league for good')
     p.add_argument('--log-every', type=int, default=5)
